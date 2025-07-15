@@ -1,0 +1,62 @@
+<div class="content w-100 shadow p-3 mb-5 bg-body rounded">
+    <div class="card-body px-3 pb-2">
+        <h5>Vehicle Details List</h5>
+
+        <input type="text" class="form-control mb-2" placeholder="Search Vehicle Number..." [(ngModel)]="searchText" />
+
+        <div style="overflow-x: auto; max-height: 400px;">
+            <table class="table table-striped">
+                <thead class="bg-black text-white sticky-top">
+                    <tr>
+                        <th>#</th>
+                        <th>Vehicle Number</th>
+                        <th>Body Type</th>
+                        <th>Chassis Number</th>
+                        <th>Engine Number</th>
+                        <th>Load Carrying Capacity</th>
+                        <th>Makrof Vehicle</th>
+                        <th>Manufacturing Year</th>
+                        <th>Model Number</th>
+                        <th>Organization Name</th>
+                        <th>User</th>
+                        <th>Vehicle Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of filteredData() | paginate: { itemsPerPage: 5, currentPage: page }">
+                        <td>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary" (click)="find(content, item)">
+                                    <i class="fa fa-pencil-square"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td>{{ item.vehicleNumber }}</td>
+                        <td>{{ item.bodyType }}</td>
+                        <td>{{ item.chassisNumber }}</td>
+                        <td>{{ item.enginNumber }}</td>
+                        <td>{{ item.load_carrying_Capacity }}</td>
+                        <td>{{ item.makrof_vehicle }}</td>
+                        <td>{{ item.manufacturing_Year }}</td>
+                        <td>{{ item.modelNumber }}</td>
+                        <td>{{ item.organizationName }}</td>
+                        <td>{{ item.userId.name }}</td>
+                        <td>{{ item.vehicleType }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <i class="bi bi-x-circle-fill"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-vehicledetailadd [data]="data" />
+    </div>
+</ng-template>

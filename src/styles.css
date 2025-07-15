@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+input:focus,
+textarea:focus{
+
+    border: 1px solid red !important;
+}
+
+
+.category-title {
+    background-color: #d7528d; /* Primary blue color (Bootstrap default) */
+    border-radius: 8px;       /* Smooth rounded corners */
+    font-weight: bold;        /* Emphasize title text */
+    padding: 8px;             /* Space around the text */
+    text-transform: uppercase; /* Optional: Make the text uppercase */
+  }
+
+
+  button {
+    background-color: #d7528d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }

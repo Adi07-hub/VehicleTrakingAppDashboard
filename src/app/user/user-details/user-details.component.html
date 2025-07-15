@@ -1,0 +1,58 @@
+<div class="content w-100 shadow p-3 mb-5 bg-body rounded">
+  <div class="card-body px-3 pb-2">
+    <h5>User List</h5>
+
+    <input
+      type="text"
+      class="form-control mb-2"
+      placeholder="Search by Name..."
+      [(ngModel)]="userSearchText"
+    />
+
+    <div style="overflow-x: auto; max-height: 400px;">
+      <table class="table table-striped">
+        <thead class="bg-black text-white sticky-top">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredUsers() | paginate: { itemsPerPage: 5, currentPage: userPage }">
+            <td>
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary" (click)="find(content, item)">
+                  <i class="fa fa-pencil-square"></i>
+                </button>
+              </div>
+            </td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.mobileNumber }}</td>
+            <td>{{ item.address }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pagination-controls (pageChange)="userPage = $event"></pagination-controls>
+  </div>
+</div>
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
+                class="bi bi-x-circle-fill"></i>
+        </button>
+    </div>
+    <div class="modal-body ">
+        <div class="container-fluid bg-white p-5">
+        <app-create-user [data]="this.data"/>
+
+        </div>
+    </div>
+
+</ng-template>

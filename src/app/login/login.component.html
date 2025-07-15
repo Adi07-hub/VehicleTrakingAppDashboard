@@ -1,0 +1,69 @@
+<div class="login-container" *ngIf="!IsLoggedIn">
+  <div class="single-box">
+    <div class="left-content">
+      <h2>Login </h2>
+      <form [formGroup]="_loginForm" (ngSubmit)="login()">
+
+        <div class="row">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" required="required" formControlName="unm" />
+          </div>
+          <div class="text-danger" *ngIf="f['unm'].invalid && (f['unm'].dirty || f['unm'].touched )">
+            <div *ngIf="f['unm'].errors!['required']">
+              Username is required.
+            </div>
+            <div *ngIf="f['unm'].errors!['maxlength']">
+              User Name at most be 10 character long
+            </div>
+            <div *ngIf="f['unm'].errors!['minlength']">
+              UserName must be 2 character long
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label>Password</label>
+            <input type="text" required="required" formControlName="pwd" />
+          </div>
+          <div class="text-danger" *ngIf="f['pwd'].invalid && (f['pwd'].dirty || f['pwd'].touched )">
+            <div *ngIf="f['pwd'].errors!['required']">
+              Password is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" [disabled]="!_loginForm.valid">Login</button>
+          <button type="button" (click)="resetForm()">Reset</button>
+        </div>
+      </form>
+
+      <div id="formFooter">
+        <a class="underlineHover"(click)="find(content)">Create New User</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<router-outlet *ngIf="IsLoggedIn"></router-outlet>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
+        class="bi bi-x-circle-fill"></i>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <div class="container-fluid bg-white p-5">
+      <app-create-user />
+    </div>
+  </div>
+
+</ng-template>

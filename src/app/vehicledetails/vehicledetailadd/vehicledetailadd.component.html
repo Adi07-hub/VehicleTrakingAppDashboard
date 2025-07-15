@@ -1,0 +1,175 @@
+<div class="container bg-white  p-3">
+
+    <h4>Vehicle Details </h4>
+
+
+    <form [formGroup]="_frmGroup">
+        <div class="row mt-2">
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Vehicle Type</label>
+                    <input type="text" class="form-control" formControlName="VehicleType">
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['VehicleType'].invalid && (f['VehicleType'].dirty || f['VehicleType'].touched )">
+                    <div *ngIf="f['VehicleType'].errors!['required']">
+                        VehicleType is required.
+                    </div>
+                    <div *ngIf="f['VehicleType'].errors!['maxlength']">
+                        VehicleType must be 100 character long
+                    </div>
+                    <div *ngIf="f['VehicleType'].errors!['minlength']">
+                        VehicleType must be 2 character long
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Chassis Number</label>
+                    <input type="text" maxlength="100" class="form-control" formControlName="ChassisNumber">
+
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['ChassisNumber'].invalid && (f['ChassisNumber'].dirty || f['ChassisNumber'].touched )">
+                    <div *ngIf="f['ChassisNumber'].errors!['required']">
+                        Chassis Number is required.
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row mt-2">
+
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Engin Number</label>
+                    <input type="text" max="100" class="form-control" formControlName="EnginNumber">
+
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['EnginNumber'].invalid && (f['EnginNumber'].dirty || f['EnginNumber'].touched )">
+                    <div *ngIf="f['EnginNumber'].errors!['required']">
+                        Engin Number is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Manufacturing Year</label>
+                    <input type="email" max="100" class="form-control" formControlName="Manufacturing_Year">
+
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['Manufacturing_Year'].invalid && (f['Manufacturing_Year'].dirty || f['Manufacturing_Year'].touched )">
+                    <div *ngIf="f['Manufacturing_Year'].errors!['required']">
+                        Manufacturing Year is required.
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Load Carrying Capacity</label>
+                    <input type="text" class="form-control" maxlength="200" formControlName="Load_carrying_Capacity">
+
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['Load_carrying_Capacity'].invalid && (f['Load_carrying_Capacity'].dirty || f['Load_carrying_Capacity'].touched )">
+                    <div *ngIf="f['Load_carrying_Capacity'].errors!['required']">
+                        Load_carrying_Capacity is required.
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Makrof_vehicle</label>
+                    <input type="text" class="form-control" maxlength="200" formControlName="Makrof_vehicle">
+
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['Makrof_vehicle'].invalid && (f['Makrof_vehicle'].dirty || f['Makrof_vehicle'].touched )">
+                    <div *ngIf="f['Makrof_vehicle'].errors!['required']">
+                        Makrof_vehicle is required.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Body Type</label>
+                    <input type="text" class="form-control" formControlName="BodyType">
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['BodyType'].invalid && (f['BodyType'].dirty || f['BodyType'].touched )">
+                    <div *ngIf="f['BodyType'].errors!['required']">
+                        Body Type is required.
+                    </div>
+
+                </div>
+            </div>
+
+             <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Organization Name</label>
+                    <input type="text" class="form-control" formControlName="OrganizationName">
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['OrganizationName'].invalid && (f['OrganizationName'].dirty || f['OrganizationName'].touched )">
+                    <div *ngIf="f['OrganizationName'].errors!['required']">
+                        Organization Name is required.
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6 mb-3">
+                <div class="group">
+                    <label>Model Number</label>
+                    <input type="text" class="form-control" formControlName="ModelNumber">
+                </div>
+                <div class="text-danger"
+                    *ngIf="f['ModelNumber'].invalid && (f['ModelNumber'].dirty || f['ModelNumber'].touched )">
+                    <div *ngIf="f['ModelNumber'].errors!['required']">
+                        Model Number is required.
+                    </div>
+
+                </div>
+            </div>
+
+             <div class="col-md-6 mb-3" *ngIf="this.data == undefined || this.data == null">
+                   <label>Select User</label>
+                <ng-select [items]="userList" bindLabel="name"  bindValue="id"
+                    class="form-control" appendTo="body"  formControlName="userId"
+                   >
+                </ng-select>
+            </div>
+
+
+
+        </div>
+      
+
+        <div class="row">
+            <div class="col-md-2 offset-md-10 mt-3 ">
+                <button class="btn btn-primary mt-2" (click)="OnSubmit()" type="submit"
+                    [disabled]="_frmGroup.invalid">Save</button>
+            </div>
+        </div>
+
+    </form>
+
+
+</div>

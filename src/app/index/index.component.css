@@ -1,0 +1,78 @@
+.px-container{
+    width: 100% - 300px;
+    height: 100%;
+}
+.card .card-block img{
+    height: 80px;
+    width: 80px;
+}
+
+.order-card {
+    margin: 5px;
+    color: #fff;
+}
+.table-card {
+    margin: 5px;
+   padding: 10px;
+   overflow-y: auto;
+   height: 500px;
+   overflow-x: hidden;
+}
+.table-card h3 {
+   color: #8a817c;
+}
+.td-work {
+    color: #548c2f;
+ }
+ .td-cancel {
+    color: #f94144;
+ }
+.bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+}
+
+.bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+
+.bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .card-block {
+    padding: 25px;
+}
+
+.order-card i {
+    font-size: 26px;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+
+/* CHARD */
+#chart {
+    /* max-width: 650px; */
+    margin: 10px;
+    background-color: white;
+  }
